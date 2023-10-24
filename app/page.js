@@ -4,6 +4,17 @@ import React,{useState,useEffect} from "react";
 import { initializeConnector } from "@web3-react/core";
 import { MetaMask } from "@web3-react/metamask";
 
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+
 //import { ethers } from 'ethers';
 //import { formatEther , parseUnits} from '@ethersproject/units';
 import abi from './abi.json'
@@ -37,14 +48,46 @@ export default function Page() {
   
 return (
     <div>
+       <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            WOJA
+          </Typography>
+          { isActive ?(
+
+          <Stack direction="row" spacing={1}>
+          <Chip label={ accounts ? accounts[0] : '' } />
+          
+          {/* <Chip label="Chip Outlined" variant="outlined" /> */}
+          
+
+            <Button color="inherit" onClick={handleDisconnect} value={'Disconnect'}>Disconnect Wallet{""}</Button>
+            {/* <input type='button' onClick={handleDisconnect} value={'Disconnect'} /> */}
+          </Stack>)
+          :
+            (
+            <Button color="inherit" onClick={handleConnect} value={'Connect'}>Connect Wallet{""}</Button>
+            // <input type='button' onClick={handleConnect} value={'Connect'} />
+            )
+          }
+          {/* <Button color="inherit">Connect Wallet</Button> */}
+        </Toolbar>
+      </AppBar>
+    </Box>
+
       <p>chainId: { chainId }</p>
       <p>isActive: { isActive.toString() }</p>
       <p>accounts: { accounts ? accounts[0] : '' }</p>
-      { isActive ?
-        <input type='button' onClick={handleDisconnect} value={'Disconnect'} />
-      :
-        <input type='button' onClick={handleConnect} value={'Connect'} />
-      }
     </div>
   )
 }
