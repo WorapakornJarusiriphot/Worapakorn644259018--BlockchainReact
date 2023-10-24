@@ -15,6 +15,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 
+// import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+// import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
 //import { ethers } from 'ethers';
 //import { formatEther , parseUnits} from '@ethersproject/units';
 import abi from './abi.json'
@@ -48,7 +61,8 @@ export default function Page() {
   
 return (
     <div>
-       <Box sx={{ flexGrow: 1 }}>
+       {/* <Box sx={{ flexGrow: 1 }}> */}
+       <Box sx={{ width: '100%' }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -85,9 +99,17 @@ return (
       </AppBar>
     </Box>
 
-      <p>chainId: { chainId }</p>
+    <br/>
+
+      {/* <p>chainId: { chainId }</p>
       <p>isActive: { isActive.toString() }</p>
-      <p>accounts: { accounts ? accounts[0] : '' }</p>
+      <p>accounts: { accounts ? accounts[0] : '' }</p> */}
+
+      <Stack spacing={2}>
+        <Item>chainId: { chainId }</Item>
+        <Item>isActive: { isActive.toString() }</Item>
+        <Item>accounts: { accounts ? accounts[0] : '' }</Item>
+      </Stack>
     </div>
   )
 }
