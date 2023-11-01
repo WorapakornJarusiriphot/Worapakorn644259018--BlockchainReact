@@ -1,3 +1,48 @@
+.spacing {
+  margin-bottom: 1rem;
+}
+
+.fullWidthButton {
+  width: 100%;
+}
+
+.nonInteractive {
+  pointer-events: none;
+  user-select: none;
+}
+
+.nonInteractive *:focus {
+  outline: none;
+  border-color: transparent;
+  background-color: transparent;
+  color: black;
+  pointer-events: none;
+  user-select: none;
+}
+
+.darkText {
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .main {
   display: flex;
   flex-direction: column;

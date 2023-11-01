@@ -1,6 +1,9 @@
 "use client"
 import React,{useState,useEffect} from "react";
 
+//import styles from './globals.css';
+import styles from './page.module.css';
+
 import { formatEther, parseUnits } from "@ethersproject/units";
 
 import { initializeConnector } from "@web3-react/core";
@@ -225,7 +228,7 @@ return (
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            WOJA
+            WOJA Token Exchange
           </Typography>
           { isActive ?(
 
@@ -273,38 +276,50 @@ return (
           My wallet balance
         </Typography>
 
-        <FormControl fullWidth sx={{ m: 1 }}>
+        {/* <FormControl className={styles.nonInteractive} fullWidth sx={{ m: 1 }}>
           <InputLabel htmlFor="outlined-adornment-amount">chainId</InputLabel>
-          <OutlinedInput
+          <OutlinedInput readOnly
             id="outlined-adornment-amount"
-            startAdornment={<InputAdornment position="start">{ chainId }</InputAdornment>}
+            startAdornment={<InputAdornment className={styles.darkText} position="start">{ chainId }</InputAdornment>}
             label="Amount"
           />
         </FormControl>
 
-        <FormControl fullWidth sx={{ m: 1 }}>
+        <FormControl className={styles.nonInteractive} fullWidth sx={{ m: 1 }}>
           <InputLabel htmlFor="outlined-adornment-amount">isActive</InputLabel>
-          <OutlinedInput
+          <OutlinedInput readOnly
             id="outlined-adornment-amount"
-            startAdornment={<InputAdornment position="start">{ isActive.toString() }</InputAdornment>}
+            startAdornment={
+              <InputAdornment position="start">
+                <span className={styles.darkText}>{ isActive.toString() }</span>
+              </InputAdornment>
+            }
             label="Amount"
           />
-        </FormControl>
+        </FormControl> */}
 
-        <FormControl fullWidth sx={{ m: 1 }}>
+        <FormControl className={styles.nonInteractive} fullWidth sx={{ m: 1 }}>
           <InputLabel htmlFor="outlined-adornment-amount">Accounts</InputLabel>
-          <OutlinedInput
+          <OutlinedInput readOnly
             id="outlined-adornment-amount"
-            startAdornment={<InputAdornment position="start">{ accounts ? accounts[0] : '' }</InputAdornment>}
+            startAdornment={
+              <InputAdornment position="start">
+                <span className={styles.darkText}>{ accounts ? accounts[0] : '' }</span>
+              </InputAdornment>
+            }            
             label="Amount"
           />
         </FormControl>
 
-        <FormControl fullWidth sx={{ m: 1 }}>
+        <FormControl className={styles.nonInteractive} fullWidth sx={{ m: 1 }}>
           <InputLabel htmlFor="outlined-adornment-amount">WOJA Balance</InputLabel>
-          <OutlinedInput
+          <OutlinedInput readOnly
             id="outlined-adornment-amount"
-            startAdornment={<InputAdornment position="start">{ balance }</InputAdornment>}
+            startAdornment={
+              <InputAdornment position="start">
+                <span className={styles.darkText}>{ balance }</span>
+              </InputAdornment>
+            }
             label="Amount"
           />
         </FormControl>
@@ -326,21 +341,20 @@ return (
           />
         </FormControl> */}
 
-      <TextField 
+        <TextField 
+          className={styles.spacing}
           fullWidth 
           label="Enter amount of Ether you want to buy WOJA Token *" 
           id="Enter amount of Ether you want to buy WOJA Token *" 
           value={WOJAValue}
           onChange={handleSetWOJAValue}
-      />
-
-        <br/>
+        />
 
         {/* <Button variant="contained" disableElevation>
           Buy WOJA Token
         </Button> */}
 
-        <Button variant="contained" onClick={handleBuy}>
+        <Button className={styles.fullWidthButton} variant="contained" onClick={handleBuy}>
           Buy WOJA Token
         </Button>
 
