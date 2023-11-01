@@ -240,7 +240,10 @@ export default function Page() {
               </Typography>
 
               <TextField
-                className={styles.spacing}
+                //className={styles.spacing}
+                style={{
+                  marginBottom: '1rem',
+                }}
                 fullWidth
                 label="Enter amount of Ether you want to buy WOJA Token *"
                 id="Enter amount of Ether you want to buy WOJA Token *"
